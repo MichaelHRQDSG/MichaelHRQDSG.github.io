@@ -1,0 +1,269 @@
+/* 基本样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+header h1 {
+    font-size: 3em; /* 增加字体大小 */
+    color: #f39c12; /* 改变颜色为亮色 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 增加阴影，提升对比度 */
+    text-align: center;
+    margin-bottom: 20px;
+}
+header {
+    background-color: #282c34;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-photo {
+    width: 150px;
+    height: auto; 
+    border-radius: 50%;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 按钮悬停效果 */
+button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+/* 横向时间线容器 */
+.timeline-container {
+    position: relative;
+    margin: 50px auto;
+    padding: 40px 0;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 时间线本身，使用渐变表示颜色段 */
+.timeline-line {
+    position: absolute;
+    height: 3px; /* 调整时间线粗细 */
+    background: linear-gradient(to right, #a2d5f2 0%, #a2d5f2 33%, #a7e3d0 33%, #a7e3d0 66%, #f7b2b7 66%, #f7b2b7 100%);
+    top: 50%; /* 时间线放在容器的中央 */
+    left: 0;
+    right: 0;
+    z-index: 1; /* 时间线位于项目下面 */
+}
+
+/* 时间线项目样式 */
+.timeline-item {
+    position: relative;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 2; /* 项目位于时间线之上 */
+}
+
+/* 通用时间点样式 */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%; /* 让时间点与时间线对齐 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    z-index: 3; /* 点位于时间线和项目之上 */
+    transition: background-color 0.3s;
+}
+
+/* 自定义时间点颜色 */
+.timeline-item.blue::before {
+    background-color: #a2d5f2; /* 柔和的浅蓝色 */
+}
+
+.timeline-item.green::before {
+    background-color: #a7e3d0; /* 柔和的浅绿色 */
+}
+
+.timeline-item.red::before {
+    background-color: #f7b2b7; /* 柔和的浅红色 */
+}
+
+/* 鼠标悬停时时间点颜色变化 */
+.timeline-item.blue:hover::before {
+    background-color: #85c1e9; /* 稍深的浅蓝色 */
+}
+
+.timeline-item.green:hover::before {
+    background-color: #81cbb8; /* 稍深的浅绿色 */
+}
+
+.timeline-item.red:hover::before {
+    background-color: #f5a6ad; /* 稍深的浅红色 */
+}
+
+/* 项目标题 */
+.timeline-item .title {
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 详细内容（默认隐藏） */
+.timeline-item .details {
+    display: none;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    position: absolute;
+    width: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* 详细信息显示在最上层 */
+}
+
+/* 鼠标悬停时显示详细内容 */
+.timeline-item:hover .details {
+    display: block;
+}
+
+/* 奇数项：时间点在上，标题在下 */
+.timeline-item:nth-child(odd) .title {
+    margin-top: 40px; /* 标题在时间点下方 */
+}
+
+/* 偶数项：时间点在下，标题在上 */
+.timeline-item:nth-child(even) .title {
+    margin-bottom: 40px; /* 标题在时间点上方 */
+}
+
+/* 偶数项详细信息向下显示 */
+.timeline-item:nth-child(even) .details {
+    top: 50px; /* 偶数项详细信息向下显示 */
+}
+
+/* 奇数项详细信息向上显示 */
+.timeline-item:nth-child(odd) .details {
+    top: -150px; /* 奇数项详细信息向上显示 */
+}
+
+/* 时间标注 */
+.time-label {
+    position: absolute;
+    top: 60%; /* 标注位置靠近时间线 */
+    font-size: 14px;
+    color: #333;
+    transform: translateX(-50%);
+}
+.timeline {
+    list-style: none;
+    padding-left: 0;
+}
+
+.timeline li {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 3px solid #555;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.experience-item h3 {
+    margin: 0;
+}
+
+.animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* 表单样式 */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}

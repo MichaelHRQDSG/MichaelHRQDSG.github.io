@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ren Qiang's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 横向时间线容器 */
+        .timeline-container {
+            position: relative;
+            margin: 50px auto;
+            padding: 40px 0;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 时间线本身 */
+        .timeline-line {
+            position: absolute;
+            height: 2px;
+            background-color: #ccc;
+            top: 50%; /* 时间线放在容器的中央 */
+            left: 0;
+            right: 0;
+            z-index: 1; /* 时间线位于项目下面 */
+        }
+
+        /* 时间线项目样式 */
+        .timeline-item {
+            position: relative;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 2; /* 项目位于时间线之上 */
+        }
+
+        /* 时间点样式 */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 50%; /* 让时间点与时间线对齐 */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background-color: #3498db;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            z-index: 3; /* 点位于时间线和项目之上 */
+            transition: background-color 0.3s;
+        }
+
+        /* 项目标题 */
+        .timeline-item .title {
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 详细内容（默认隐藏） */
+        .timeline-item .details {
+            display: none;
+            background-color: #fff;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            position: absolute;
+            width: 220px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10; /* 详细信息显示在最上层 */
+        }
+
+        /* 鼠标悬停时显示详细内容 */
+        .timeline-item:hover .details {
+            display: block;
+        }
+
+        /* 鼠标悬停时点的颜色变化 */
+        .timeline-item:hover::before {
+            background-color: #2ecc71;
+        }
+
+        /* 奇数项：时间点在上，标题在下 */
+        .timeline-item:nth-child(odd) .title {
+            margin-top: 40px; /* 标题在时间点下方 */
+        }
+
+        /* 偶数项：时间点在下，标题在上 */
+        .timeline-item:nth-child(even) .title {
+            margin-bottom: 40px; /* 标题在时间点上方 */
+        }
+
+        /* 偶数项详细信息向下显示 */
+        .timeline-item:nth-child(even) .details {
+            top: 50px; /* 偶数项详细信息向下显示 */
+        }
+
+        /* 奇数项详细信息向上显示 */
+        .timeline-item:nth-child(odd) .details {
+            top: -150px; /* 奇数项详细信息向上显示 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ren Qiang's Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#papers"><i class="fas fa-book"></i> Publications</a></li>
+                <li><a href="#awards"><i class="fas fa-trophy"></i> Awards</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 横向时间线 -->
+    <section id="timeline">
+        <h2><i class="fas fa-briefcase"></i> Experience Timeline</h2>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <!-- 时间线项目 1 -->
+            <div class="timeline-item">
+                <span class="title">Forvia</span>
+                <div class="details">
+                    <p>2024.03 - 2024.07</p>
+                    <p>Text-to-Image and Video Generation</p>
+                </div>
+            </div>
+
+            <!-- 时间线项目 2 -->
+            <div class="timeline-item">
+                <span class="title">CUHK & Huawei</span>
+                <div class="details">
+                    <p>2024.07 - Present</p>
+                    <p>AI Speech Detection</p>
+                </div>
+            </div>
+
+            <!-- 时间线项目 3 -->
+            <div class="timeline-item">
+                <span class="title">NIO</span>
+                <div class="details">
+                    <p>2023.02 - 2023.11</p>
+                    <p>Large Language Model Test Case Generation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ren Qiang's Portfolio</p>
+    </footer>
+
+    <script>
+        // 可添加其他 JS 动画或逻辑
+    </script>
+</body>
+</html>
