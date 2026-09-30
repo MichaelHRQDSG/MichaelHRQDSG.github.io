@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@560;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
     <script>
         try {
             if (localStorage.getItem("lang") === "zh") {
@@ -25,7 +25,7 @@
     </script>
 </head>
 <body>
-    <div class="layout">
+    <div class="layout" id="top">
         <aside class="poster">
             <img class="poster-photo" src="images/life/hero.jpg" alt="和任强">
             <div class="poster-ui">
@@ -35,7 +35,7 @@
                     </button>
                     <div class="poster-tools">
                         <button class="text-btn" id="lang-toggle" type="button">中文</button>
-                        <span>©<span id="year">2026</span></span>
+                        <span>©<span class="year">2026</span></span>
                     </div>
                 </div>
                 <nav class="poster-nav" id="site-nav">
@@ -47,19 +47,10 @@
                     <a href="#contact"><span class="en">Contact</span><span class="zh">联系</span></a>
                 </nav>
                 <div class="poster-main">
-                    <div class="kicker-row">
-                        <span class="en">AI Engineer</span><span class="zh">算法工程师</span>
-                        <span class="en">Multimodal</span><span class="zh">多模态</span>
-                        <span class="en">Since 2018</span><span class="zh">2018 年起</span>
-                    </div>
                     <h1>
                         <span class="en">Renqiang</span>
                         <span class="zh">和任强</span>
                     </h1>
-                    <p class="poster-role">
-                        <span class="en">Malanshan Audio-Video Laboratory</span>
-                        <span class="zh">马栏山音视频实验室</span>
-                    </p>
                 </div>
             </div>
         </aside>
@@ -226,24 +217,42 @@
                 </div>
             </section>
 
-            <section class="sheet" id="contact">
-                <h2><span class="en">Contact</span><span class="zh">联系</span></h2>
-                <div class="contact-grid">
-                    <ul class="contact-list">
-                        <li><a href="mailto:hrqdsg@163.com">hrqdsg@163.com</a></li>
-                        <li><a href="tel:+8619801210247">+86 19801210247</a></li>
-                        <li><a href="https://github.com/MichaelHRQDSG" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                    </ul>
-                    <form id="contact-form">
-                        <label><span class="en">Name</span><span class="zh">姓名</span><input type="text" name="name" required autocomplete="name"></label>
-                        <label><span class="en">Email</span><span class="zh">邮箱</span><input type="email" name="email" required autocomplete="email"></label>
-                        <label><span class="en">Message</span><span class="zh">留言</span><textarea name="message" rows="4" required></textarea></label>
-                        <button type="submit"><span class="en">Send</span><span class="zh">发送</span></button>
-                    </form>
-                </div>
-            </section>
         </main>
     </div>
-    <script src="script.js?v=3"></script>
+
+    <footer class="site-end" id="contact">
+        <div class="end-top">
+            <div class="end-intro">
+                <p><span class="en">Glad to hear from you.</span><span class="zh">期待收到你的消息。</span></p>
+                <a class="big-mail" href="mailto:hrqdsg@163.com">hrqdsg@163.com</a>
+                <a class="end-phone" href="tel:+8619801210247">+86 19801210247</a>
+                <div class="bubbles">
+                    <a href="mailto:hrqdsg@163.com" aria-label="Email">
+                        <svg class="mail" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v11H3v-11Zm1.4.9 7.6 5.2 7.6-5.2"/></svg>
+                    </a>
+                    <a href="https://github.com/MichaelHRQDSG" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg class="gh" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-2.8 17.1c.4.1.6-.2.6-.4v-1.5c-2.5.5-3-1.1-3-1.1-.4-.9-1-1.2-1-1.2-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.3 2.1.9 2.6.7.1-.6.3-.9.6-1.1-2-.2-4.1-1-4.1-4.4 0-1 .3-1.8.9-2.4-.1-.2-.4-1.2.1-2.4 0 0 .8-.3 2.5.9a8.7 8.7 0 0 1 4.6 0c1.7-1.2 2.5-.9 2.5-.9.5 1.2.2 2.2.1 2.4.6.6.9 1.4.9 2.4 0 3.4-2.1 4.2-4.1 4.4.3.3.6.8.6 1.6v2.3c0 .2.2.5.6.4A8.8 8.8 0 0 0 12 3.2Z"/></svg>
+                    </a>
+                </div>
+                <small>© <span class="year">2026</span> <span class="en">Renqiang He</span><span class="zh">和任强</span></small>
+            </div>
+            <nav class="end-links">
+                <a href="#work"><span class="en">Work</span><span class="zh">工作</span></a>
+                <a href="#education"><span class="en">Education</span><span class="zh">教育</span></a>
+                <a href="#research"><span class="en">Research</span><span class="zh">科研</span></a>
+                <a href="#life"><span class="en">Life</span><span class="zh">生活</span></a>
+                <a href="#intro"><span class="en">About</span><span class="zh">关于</span></a>
+            </nav>
+            <figure class="end-photo">
+                <img src="images/life/highland.jpg" alt="和任强">
+            </figure>
+        </div>
+        <div class="end-mark">
+            <a class="up" href="#top" aria-label="Back to top">↑</a>
+            <p class="end-word"><span class="en">Renqiang</span><span class="zh">和任强</span></p>
+            <a class="handle" href="https://github.com/MichaelHRQDSG" target="_blank" rel="noopener noreferrer">@MichaelHRQDSG</a>
+        </div>
+    </footer>
+    <script src="script.js?v=4"></script>
 </body>
 </html>

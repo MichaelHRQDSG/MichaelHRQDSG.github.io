@@ -74,7 +74,6 @@ p { margin: 0; }
 
 .poster-top,
 .poster-tools,
-.kicker-row,
 .entry-top {
     display: flex;
     align-items: center;
@@ -137,23 +136,6 @@ form button {
 
 .poster-nav.open + .poster-main { display: none; }
 
-.kicker-row {
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.kicker-row span {
-    background: rgba(247, 247, 245, 0.78);
-    padding: 4px 8px;
-}
-
-html.zh .kicker-row { letter-spacing: 0.14em; }
-
 .poster h1 {
     font-size: clamp(3.8rem, 6.2vw, 6.6rem);
     font-weight: 800;
@@ -165,14 +147,6 @@ html.zh .poster h1 {
     font-family: "Songti SC", "Noto Serif SC", Archivo, serif;
     font-size: clamp(4.8rem, 8vw, 8.6rem);
     letter-spacing: 0.04em;
-}
-
-.poster-role {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 4px 8px;
-    background: rgba(247, 247, 245, 0.78);
-    font-size: 0.92rem;
 }
 
 .feed {
@@ -290,45 +264,121 @@ figcaption { margin-top: 8px; font-size: 0.82rem; }
 
 .life-grid .wide img { height: 420px; }
 
-.contact-grid {
+.site-end {
+    color: #f6f7f2;
+    padding: 54px 28px 0;
+    scroll-margin-top: 14px;
+}
+
+.end-top {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 32px;
+    grid-template-columns: 1.3fr auto minmax(180px, 280px);
+    gap: 28px 40px;
+    align-items: end;
 }
 
-.contact-list {
-    list-style: none;
+.big-mail {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: Archivo, "PingFang SC", sans-serif;
+    font-size: clamp(1.8rem, 3.4vw, 3.1rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.end-phone {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+.bubbles {
+    display: flex;
+    gap: 10px;
+    margin: 22px 0 16px;
+}
+
+.bubbles a {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(246, 247, 242, 0.55);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.bubbles svg { width: 18px; height: 18px; }
+.bubbles .mail { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.bubbles .gh { fill: currentColor; }
+
+.end-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 8px;
+}
+
+.end-links a { text-decoration: none; }
+
+.end-photo {
     margin: 0;
-    padding: 0;
-    font-size: 1.15rem;
-}
-
-.contact-list a { text-decoration: none; border-bottom: 1px solid var(--ink); }
-
-.contact-list li + li { margin-top: 12px; }
-
-form { display: grid; gap: 14px; }
-
-form label { display: grid; gap: 6px; font-size: 0.84rem; color: var(--muted); }
-
-input, textarea {
+    justify-self: end;
     width: 100%;
-    border: 0;
-    border-bottom: 1px solid #ccc;
-    background: transparent;
-    color: var(--ink);
-    font: inherit;
-    padding: 8px 0 10px;
-    border-radius: 0;
 }
 
-form button {
-    justify-self: start;
-    margin-top: 6px;
-    border: 0;
-    border-bottom: 1px solid var(--ink);
-    padding: 0 0 2px;
-    font-weight: 600;
+.end-photo img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 18px 18px 28px 28px;
+}
+
+.end-mark {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: end;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.up {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    background: #f7f7f5;
+    color: #243024;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.end-word {
+    margin: 0;
+    font-family: Archivo, "Arial Narrow", sans-serif;
+    font-weight: 800;
+    font-size: clamp(4.8rem, 14vw, 12.5rem);
+    line-height: 0.76;
+    letter-spacing: -0.06em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+html.zh .end-word {
+    font-family: "Songti SC", "Noto Serif SC", serif;
+    letter-spacing: 0.02em;
+    font-size: clamp(4.6rem, 13vw, 11rem);
+}
+
+.handle {
+    margin-bottom: 22px;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 :focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; }
@@ -337,7 +387,11 @@ form button {
     .layout { grid-template-columns: 1fr; padding: 10px; }
     .poster { position: relative; top: 0; height: 92vh; }
     .sheet { padding: 28px 22px 32px; }
-    .stats, .contact-grid, .life-grid { grid-template-columns: 1fr; }
+    .stats, .life-grid, .end-top, .end-mark { grid-template-columns: 1fr; }
+    .end-photo { max-width: 280px; }
+    .end-word { font-size: 4.2rem; }
+    html.zh .end-word { font-size: 3.6rem; }
+    .handle, .up { margin-bottom: 0; }
     .stats div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); margin-top: 14px; }
     .life-grid .wide { grid-column: auto; }
     .life-grid img, .life-grid .wide img { height: 240px; }

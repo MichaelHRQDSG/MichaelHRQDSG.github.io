@@ -2,7 +2,7 @@ const root = document.documentElement;
 const langButton = document.getElementById("lang-toggle");
 const nav = document.getElementById("site-nav");
 const navToggle = document.getElementById("nav-toggle");
-const year = document.getElementById("year");
+const years = document.querySelectorAll(".year");
 
 const titles = {
     en: "Renqiang He",
@@ -40,15 +40,6 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeNav();
 });
 
-document.getElementById("contact-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const name = String(data.get("name") || "").trim();
-    const email = String(data.get("email") || "").trim();
-    const message = String(data.get("message") || "").trim();
-    const subject = encodeURIComponent(`Portfolio note from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`);
-    window.location.href = `mailto:hrqdsg@163.com?subject=${subject}&body=${body}`;
+years.forEach((node) => {
+    node.textContent = String(new Date().getFullYear());
 });
-
-year.textContent = String(new Date().getFullYear());
