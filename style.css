@@ -21,6 +21,7 @@ html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
+    overflow-x: clip;
     color: var(--ink);
     background:
         radial-gradient(circle at 0 0, rgba(215, 176, 122, 0.18), transparent 28%),
@@ -234,12 +235,21 @@ html.zh .eyebrow { letter-spacing: 0.22em; }
 .portrait-card figcaption {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     gap: 12px;
     padding: 14px 8px 2px;
     font-size: 0.92rem;
 }
 
-.portrait-card figcaption span { color: var(--muted); }
+.portrait-card figcaption strong {
+    color: var(--ink);
+    font-weight: 560;
+}
+
+.portrait-card figcaption > span {
+    color: var(--muted);
+    white-space: nowrap;
+}
 
 .stats {
     display: grid;
@@ -390,13 +400,18 @@ h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
 }
 
 .section-head {
-    display: flex;
-    gap: 18px;
-    align-items: end;
+    display: grid;
+    grid-template-columns: 2.6rem minmax(0, 1fr);
+    column-gap: 8px;
+    align-items: start;
     margin-bottom: 28px;
 }
 
-.section-note { max-width: 40rem; margin-top: 8px; }
+.section-head .index {
+    margin: 0.7rem 0 0;
+}
+
+.section-note { max-width: 46rem; margin-top: 10px; }
 
 .school {
     display: flex;
@@ -611,15 +626,11 @@ html.zh .kicker { text-transform: none; letter-spacing: 0; }
 }
 
 .reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    animation: rise 0.8s ease forwards;
+    animation: rise 0.7s ease;
 }
 
-.reveal:nth-child(2) { animation-delay: 0.08s; }
-.reveal:nth-child(3) { animation-delay: 0.16s; }
-
 @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: none; }
 }
 
@@ -668,6 +679,6 @@ html.zh .kicker { text-transform: none; letter-spacing: 0; }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; animation: none; }
+    .reveal,
     .marquee-track { animation: none; }
 }
